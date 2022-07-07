@@ -3,20 +3,37 @@
 	"extends": [
 		"github>renovatebot/.github"
 	],
-	"devDependencies": {
-		"automerge": "minor",
-		"schedule": null
-	},
-	"peerDependencies": {
-		"versionStrategy": "widen"
-	},
-	"depTypes": [
-		"dependencies",
+	"packageRules": [
 		{
-			"depType": "optionalDependencies",
+			"minor": {
+				"automerge": true
+			},
+			"major": {
+				"automerge": false
+			},
+			"schedule": null,
+			"matchDepTypes": [
+				"devDependencies"
+			]
+		},
+		{
+			"rangeStrategy": "widen",
+			"matchDepTypes": [
+				"peerDependencies"
+			]
+		},
+		{
 			"respectLatest": false,
-			"automerge": "minor",
-			"schedule": "before 5am on Mondays"
+			"minor": {
+				"automerge": true
+			},
+			"major": {
+				"automerge": false
+			},
+			"schedule": "before 5am on Monday",
+			"matchDepTypes": [
+				"optionalDependencies"
+			]
 		}
 	]
 }
