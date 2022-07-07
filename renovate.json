@@ -1,6 +1,22 @@
 {
-   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-   "assignees": ["rarkins"],
-   "commitMessageTopic": "dependency {{{depName}}}",
-   "node": { "enabled": true }
+	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
+	"extends": [
+		"github>renovatebot/.github"
+	],
+	"devDependencies": {
+		"automerge": "minor",
+		"schedule": null
+	},
+	"peerDependencies": {
+		"versionStrategy": "widen"
+	},
+	"depTypes": [
+		"dependencies",
+		{
+			"depType": "optionalDependencies",
+			"respectLatest": false,
+			"automerge": "minor",
+			"schedule": "before 5am on Mondays"
+		}
+	]
 }
